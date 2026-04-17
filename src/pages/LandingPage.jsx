@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 
 // Component Imports
 import TopNav from '../components/TopNav';
-import HeroSection from '../components/HeroSection';
-import NewsSection from '../components/NewsSection';
+ // 1. Added the correct import!
 import PreparationSection from '../components/PreparationSection'; 
 import Footer from '../components/Footer';
+import HeroAndScroller from '../components/HeroAndScroller'
 
 function LandingPage() {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
@@ -32,7 +32,8 @@ function LandingPage() {
   }, []);
 
   return (
-    <div className="relative min-h-screen bg-[#F8F9FA] font-sans text-black scroll-smooth flex flex-col overflow-x-hidden">
+    // 2. CRITICAL FIX: Changed overflow-x-hidden to overflow-x-clip so the sticky phone works!
+    <div className="relative min-h-screen bg-[#F8F9FA] font-sans text-black scroll-smooth flex flex-col overflow-x-clip">
       
       {/* --- SKELETON SCREEN WITH SHIMMER EFFECT --- */}
       {!hideLoader && (
@@ -96,14 +97,17 @@ function LandingPage() {
       {/* --- MAIN PAGE CONTENT --- */}
       <TopNav onLoginClick={() => setIsLoginOpen(true)} />
 
-      <HeroSection />
+      
 
       <main className="flex-grow flex flex-col w-full">
-        <NewsSection />
+        
+        {/* 3. Replaced NewsSection with your new 3D Scroller! */}
+        <HeroAndScroller/>
+
         
 
         <section 
-          className="w-full bg-[#0863c1] py-20 px-6 flex flex-col items-center justify-center text-center"
+          className="w-full bg-[#0863c1] py-20 px-6 flex flex-col items-center justify-center text-center relative z-10"
           style={{paddingTop:'150px', paddingBottom:'150px'}}
         >
           <h2 className="text-white text-3xl md:text-[40px] font-bold mb-6 tracking-tight" style={{marginBottom:'15px'}}>
@@ -122,6 +126,7 @@ function LandingPage() {
             </a>
           </p>
         </section>
+
         <PreparationSection />
       </main>
 

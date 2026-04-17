@@ -132,7 +132,7 @@ const PreparationSection = () => {
             </div>
             
             {/* FLOATING CARD 1: Top Left */}
-            <div className="absolute -left-4 w-[150px] h-[60px] md:-left-10 top-8 bg-gray-900/85 backdrop-blur-md border border-white/10 shadow-xl rounded-xl p-4 flex items-center gap-3 z-20 animate-[bounce_4s_infinite] pointer-events-none">
+            <div className="absolute -left-4 w-[150px] h-[60px] md:-left-10 top-8 bg-gray-900/85 backdrop-blur-md border border-white/10 shadow-xl rounded-[8px] p-4 flex items-center gap-3 z-20 animate-[bounce_4s_infinite] pointer-events-none">
               <span className="relative flex h-3 w-3"
               style={{marginLeft:'10px'}}>
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" ></span>
@@ -145,7 +145,7 @@ const PreparationSection = () => {
             </div>
 
             {/* FLOATING CARD 2: Bottom Right */}
-            <div className="absolute -right-4 w-[200px] h-[80px] md:-right-15 bottom-12 bg-gray-900/85 backdrop-blur-md border border-white/10 shadow-xl rounded-xl p-4 flex items-center gap-3 z-20 animate-[bounce_5s_infinite_reverse] pointer-events-none">
+            <div className="absolute -right-4 w-[200px] h-[80px] md:-right-15 bottom-12 bg-gray-900/85 backdrop-blur-md border border-white/10 shadow-xl rounded-[4px] p-4 flex items-center gap-3 z-20 animate-[bounce_5s_infinite_reverse] pointer-events-none">
               <div className="bg-red-500/20 p-2 rounded-full" style={{marginLeft:'10px'}}>
                 <svg className="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>

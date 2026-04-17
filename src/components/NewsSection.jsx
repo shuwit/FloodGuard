@@ -44,7 +44,7 @@ const NewsSection = () => {
           {newsData.map((item) => (
             <article 
               key={item.id} 
-              className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 flex flex-col"
+              className="bg-white rounded-[8px] overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 flex flex-col"
               
             >
               {/* Image Container */}

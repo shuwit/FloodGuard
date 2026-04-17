@@ -35,7 +35,7 @@ const TopNav = ({ onLoginClick }) => {
         isVisible ? 'translate-y-0' : '-translate-y-full'
       }`}
     >
-      <div className="max-w-[1920px] mx-auto px-6 md:px-8 xl:px-[280px] h-[85px] flex items-center justify-between relative"
+      <div className="max-w-[1920px] mx-auto px-6 md:px-8 xl:px-[280px] h-[100px] flex items-center justify-between relative"
       style={{ paddingLeft: '280px', paddingRight: '280px' }}>
         
 
@@ -47,8 +47,9 @@ const TopNav = ({ onLoginClick }) => {
           </Link>
 
           <nav className="hidden xl:flex items-center gap-10">
-            <a href="#news" className="text-gray-900 font-medium text-[20px] hover:text-[#005ec6] transition-colors">News</a>
-            <a href="#achievement" className="text-gray-900 font-medium text-[20px] hover:text-[#005ec6] transition-colors">Achievement</a>
+            <a href="/" className="text-gray-900 font-medium text-[20px] hover:text-[#005ec6] transition-colors">Home</a>
+            <a href="/news" className="text-gray-900 font-medium text-[20px] hover:text-[#005ec6] transition-colors">News</a>
+            <a href="/achievement" className="text-gray-900 font-medium text-[20px] hover:text-[#005ec6] transition-colors">Achievement</a>
 
             <div
               className="relative"
@@ -132,6 +133,7 @@ const TopNav = ({ onLoginClick }) => {
           </div>
 
           <a href="#achievement" className="text-gray-900 font-medium text-[20px] hover:text-[#005ec6] transition-colors">About</a>
+
 
           <button
             onClick={() => { setIsMobileMenuOpen(false); onLoginClick(); }}
