@@ -3,10 +3,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import logo from '../assets/images/floodguard-logo.png'; 
 
 const LoginModal = ({ isOpen, onClose }) => {
-  // 👇 Added state for the placeholder account! 👇
-  const [username, setUsername] = useState('admin');
-  const [password, setPassword] = useState('password');
-  
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
 
@@ -22,20 +18,11 @@ const LoginModal = ({ isOpen, onClose }) => {
     };
   }, [isOpen]);
 
-  // 👇 Simple login logic for your mockup 👇
-  const handleLogin = () => {
-    if (username === 'admin' && password === 'password') {
-      alert('Welcome back, Admin!');
-      onClose(); // Close the modal on success
-    } else {
-      alert('Invalid credentials! Try Username: admin | Password: password');
-    }
-  };
-
   return (
-    // The Frosted Glass Backdrop
+    // 👇 FIX 1: Wrap everything in AnimatePresence so exit animations can play 👇
     <AnimatePresence>
       {isOpen && (
+        // 👇 FIX 2: Made the backdrop a motion.div so the blur fades out smoothly! 👇
         <motion.div 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -62,7 +49,7 @@ const LoginModal = ({ isOpen, onClose }) => {
               box-shadow: 0 10px 25px -5px rgba(0, 94, 198, 0.5);
             }
 
-            /* Continuous Bottom Waves Animation */
+            /* Continuous Bottom Waves Animation (From your text file!) */
             @keyframes wv {
               0% { transform: translateX(0); }
               100% { transform: translateX(-1440px); }
@@ -72,6 +59,7 @@ const LoginModal = ({ isOpen, onClose }) => {
             .w3 { animation: wv 28s linear infinite; animation-delay: -14s; }
           `}</style>
 
+          {/* 👇 FIX 3: Enhanced exit animation (drops down slightly while shrinking) 👇 */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -100,8 +88,6 @@ const LoginModal = ({ isOpen, onClose }) => {
                 <label className="absolute -top-3 left-11 bg-[#dfeeff] px-5 text-[#005ec6] text-sm font-medium">Username</label>
                 <input 
                   type="text" 
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)} // Makes the input typable
                   className="w-full h-[55px] bg-transparent border-[2px] border-[#86b4e8] rounded-full pr-6 text-[#005ec6] font-medium outline-none focus:border-[#005ec6] focus:ring-[#005ec6] transition-all"
                   style={{ paddingLeft: '44px' }} 
                 />
@@ -112,11 +98,10 @@ const LoginModal = ({ isOpen, onClose }) => {
                 <label className="absolute -top-3 left-11 bg-[#dfeeff] px-2 text-[#005ec6] text-sm font-medium">Password</label>
                 <input 
                   type={showPassword ? "text" : "password"} 
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)} // Makes the input typable
                   className="w-full h-[55px] bg-transparent border-[2px] border-[#86b4e8] rounded-full pr-14 text-[#005ec6] font-medium outline-none focus:border-[#005ec6] focus:ring-[#005ec6] transition-all"
                   style={{ paddingLeft: '44px' }}
                 />
+                {/* ... your eye button stays the same ... */}
                 <button 
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
@@ -151,11 +136,8 @@ const LoginModal = ({ isOpen, onClose }) => {
               </div>
 
               {/* Login Button */}
-              <button 
-                onClick={handleLogin} // 👇 Attached the login function here! 👇
-                className="btn-wave w-[370px] h-[55px] rounded-full text-white font-bold text-[22px] tracking-wide mt-2 z-10" 
-                style={{marginLeft:'40px',marginRight:'40px', marginTop:'20px'}}
-              >
+              <button className="btn-wave w-[370px] h-[55px] rounded-full text-white font-bold text-[22px] tracking-wide mt-2 z-10" 
+              style={{marginLeft:'40px',marginRight:'40px', marginTop:'20px'}}>
                 LOGIN
               </button>
               

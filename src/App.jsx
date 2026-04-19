@@ -3,7 +3,8 @@ import LandingPage from './pages/LandingPage';
 import PrivacyNotice from './pages/PrivacyNotice';
 import TermsOfService from './pages/TermsOfService';
 import NewsPage from './pages/NewsPage';
-import AchievementPage from './pages/AchievementPage'; // 1. Import your new page
+import AchievementPage from './pages/AchievementPage';
+import LoginModal from './components/LoginModal'; // 1. Import your new page
  
 function App() {
   return (

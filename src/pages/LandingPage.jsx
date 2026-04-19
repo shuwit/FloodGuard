@@ -6,6 +6,7 @@ import TopNav from '../components/TopNav';
 import PreparationSection from '../components/PreparationSection'; 
 import Footer from '../components/Footer';
 import HeroAndScroller from '../components/HeroAndScroller'
+import LoginModal from '../components/LoginModal';
 
 function LandingPage() {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
@@ -97,12 +98,24 @@ function LandingPage() {
       {/* --- MAIN PAGE CONTENT --- */}
       <TopNav onLoginClick={() => setIsLoginOpen(true)} />
 
+        {/* 👇 2. THE NEW MODAL 👇 */}
+   <LoginModal 
+     isOpen={isLoginOpen} 
+     onClose={() => setIsLoginOpen(false)} 
+   />
+
+
+
+        
+
       
 
       <main className="flex-grow flex flex-col w-full">
         
         {/* 3. Replaced NewsSection with your new 3D Scroller! */}
         <HeroAndScroller/>
+
+        <PreparationSection />
 
         
 
@@ -127,7 +140,7 @@ function LandingPage() {
           </p>
         </section>
 
-        <PreparationSection />
+        
       </main>
 
       <Footer />

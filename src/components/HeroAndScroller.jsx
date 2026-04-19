@@ -310,7 +310,7 @@ const HeroAndScroller = () => {
       </div>
 
       {/* ── STATIC HERO TEXT (Scrolls up naturally!) ── */}
-      <div className="absolute top-20 left-0 w-full h-[100vh] z-10 flex flex-col items-center justify-start pt-[12vh] px-6">
+      <div className="absolute top-15 left-0 w-full h-[100vh] z-10 flex flex-col items-center justify-start pt-[12vh] px-6">
         <h1 className="text-4xl md:text-5xl lg:text-[80px]  font-extrabold text-white text-center leading-[1.2] tracking-tight mb-4 drop-shadow-md w-full">
           
           {/* Top Line */}
@@ -417,7 +417,11 @@ const HeroAndScroller = () => {
             <div className="absolute inset-0 bg-[#18181b] rounded-[48px]" style={{ transform: 'translateZ(-4px)' }} />
             <div className="absolute inset-0 bg-[#27272a] rounded-[48px]" style={{ transform: 'translateZ(-6px)' }} />
             <div className="absolute inset-0 bg-[#27272a] rounded-[48px]" style={{ transform: 'translateZ(-8px)' }} />
-            <div className="absolute inset-0 bg-[#3f3f46] rounded-[48px]" style={{ transform: 'translateZ(-10px)' }} />
+            <div className="absolute inset-0 bg-[#3f3f46] rounded-[48px]" style={{ transform: 'translateZ(-12px)' }} />
+            <div className="absolute inset-0 bg-[#3f3f46] rounded-[48px]" style={{ transform: 'translateZ(-14px)' }} />
+            <div className="absolute inset-0 bg-[#3f3f46] rounded-[48px]" style={{ transform: 'translateZ(-16px)' }} />
+            <div className="absolute inset-0 bg-[#3f3f46] rounded-[48px]" style={{ transform: 'translateZ(-18px)' }} />
+            <div className="absolute inset-0 bg-[#3f3f46] rounded-[48px]" style={{ transform: 'translateZ(-20px)' }} />
             {/* The drop shadow casts from the very back layer for realism */}
             <div className="absolute inset-0 bg-[#3f3f46] rounded-[48px] shadow-[0_40px_80px_rgba(0,0,0,0.4)]" style={{ transform: 'translateZ(-12px)' }} />
 

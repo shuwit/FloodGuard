@@ -66,31 +66,16 @@ const PreparationSection = () => {
   return (
     <section 
       // Changed bg to white, added relative, and added mouse event listeners
-      className="relative w-full bg-white py-24 md:py-32 overflow-hidden"
+      className="relative w-full bg-[#f8f9fa] py-24 md:py-32 overflow-hidden"
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
     >
       
-      {/* --- NEW: THE GLOWING CURSOR CIRCLE --- */}
-      <div 
-        className="pointer-events-none absolute rounded-full blur-[100px] transition-opacity duration-700 ease-out"
-        style={{
-          width: '650px',
-          height: '650px',
-          backgroundColor: '#dfeeff',
-          left: `${mousePos.x}px`,
-          top: `${mousePos.y}px`,
-          transform: 'translate(-50%, -50%)',
-          opacity: isHovering ? 1 : 0,
-          zIndex: 0 // Keeps it in the very back
-        }}
-      />
-      {/* -------------------------------------- */}
 
       {/* Added 'relative z-10' so the text and map sit ON TOP of the glowing circle */}
       <div className="max-w-[1920px] w-full mx-auto px-6 md:px-8 flex flex-col lg:flex-row items-center justify-between gap-0 relative z-10"
-      style={{paddingLeft:'280px', paddingTop:'100px', paddingBottom:'100px', paddingRight:'280px'}}>
+      style={{paddingLeft:'280px', paddingTop:'80px', paddingBottom:'100px', paddingRight:'280px'}}>
         
         {/* LEFT SIDE: Text Content */}
         <div className="flex-1 flex flex-col items-start justify-center">
