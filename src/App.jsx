@@ -4,7 +4,9 @@ import PrivacyNotice from './pages/PrivacyNotice';
 import TermsOfService from './pages/TermsOfService';
 import NewsPage from './pages/NewsPage';
 import AchievementPage from './pages/AchievementPage';
-import LoginModal from './components/LoginModal'; // 1. Import your new page
+
+// 👇 Import your new Admin Dashboard 👇
+import AdminDashboard from './AdminPages/AdminDashboard'; 
  
 function App() {
   return (
@@ -14,7 +16,10 @@ function App() {
         <Route path="/privacy" element={<PrivacyNotice />} />
         <Route path="/terms" element={<TermsOfService />} />
         <Route path="/news" element={<NewsPage />} /> 
-        <Route path="/achievement" element={<AchievementPage />} /> {/* 2. Add the route */}
+        <Route path="/achievement" element={<AchievementPage />} />
+        
+        {/* 👇 The new secure Admin route 👇 */}
+        <Route path="/admin" element={<AdminDashboard />} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,8 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import logo from '../assets/images/floodguard-logo.png'; 
+import { useNavigate } from 'react-router-dom'; // 👈 Crucial import for redirecting to /admin
 
 const LoginModal = ({ isOpen, onClose }) => {
+  const navigate = useNavigate(); // 👈 Initializes the router navigation
+
+  // Placeholder account state
+  const [username, setUsername] = useState('admin');
+  const [password, setPassword] = useState('password');
+  
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
 
@@ -18,11 +25,20 @@ const LoginModal = ({ isOpen, onClose }) => {
     };
   }, [isOpen]);
 
+  // Login logic that redirects to the Admin Dashboard
+  const handleLogin = () => {
+    if (username === 'admin' && password === 'password') {
+      onClose(); // Close the modal smoothly
+      navigate('/admin'); // 👈 Instantly redirects the user to the Admin Dashboard!
+    } else {
+      alert('Invalid credentials! Try Username: admin | Password: password');
+    }
+  };
+
   return (
-    // 👇 FIX 1: Wrap everything in AnimatePresence so exit animations can play 👇
+    // The Frosted Glass Backdrop
     <AnimatePresence>
       {isOpen && (
-        // 👇 FIX 2: Made the backdrop a motion.div so the blur fades out smoothly! 👇
         <motion.div 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -49,7 +65,7 @@ const LoginModal = ({ isOpen, onClose }) => {
               box-shadow: 0 10px 25px -5px rgba(0, 94, 198, 0.5);
             }
 
-            /* Continuous Bottom Waves Animation (From your text file!) */
+            /* Continuous Bottom Waves Animation */
             @keyframes wv {
               0% { transform: translateX(0); }
               100% { transform: translateX(-1440px); }
@@ -59,7 +75,6 @@ const LoginModal = ({ isOpen, onClose }) => {
             .w3 { animation: wv 28s linear infinite; animation-delay: -14s; }
           `}</style>
 
-          {/* 👇 FIX 3: Enhanced exit animation (drops down slightly while shrinking) 👇 */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -88,6 +103,8 @@ const LoginModal = ({ isOpen, onClose }) => {
                 <label className="absolute -top-3 left-11 bg-[#dfeeff] px-5 text-[#005ec6] text-sm font-medium">Username</label>
                 <input 
                   type="text" 
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
                   className="w-full h-[55px] bg-transparent border-[2px] border-[#86b4e8] rounded-full pr-6 text-[#005ec6] font-medium outline-none focus:border-[#005ec6] focus:ring-[#005ec6] transition-all"
                   style={{ paddingLeft: '44px' }} 
                 />
@@ -98,10 +115,11 @@ const LoginModal = ({ isOpen, onClose }) => {
                 <label className="absolute -top-3 left-11 bg-[#dfeeff] px-2 text-[#005ec6] text-sm font-medium">Password</label>
                 <input 
                   type={showPassword ? "text" : "password"} 
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   className="w-full h-[55px] bg-transparent border-[2px] border-[#86b4e8] rounded-full pr-14 text-[#005ec6] font-medium outline-none focus:border-[#005ec6] focus:ring-[#005ec6] transition-all"
                   style={{ paddingLeft: '44px' }}
                 />
-                {/* ... your eye button stays the same ... */}
                 <button 
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
@@ -136,8 +154,11 @@ const LoginModal = ({ isOpen, onClose }) => {
               </div>
 
               {/* Login Button */}
-              <button className="btn-wave w-[370px] h-[55px] rounded-full text-white font-bold text-[22px] tracking-wide mt-2 z-10" 
-              style={{marginLeft:'40px',marginRight:'40px', marginTop:'20px'}}>
+              <button 
+                onClick={handleLogin}
+                className="btn-wave w-[370px] h-[55px] rounded-full text-white font-bold text-[22px] tracking-wide mt-2 z-10" 
+                style={{marginLeft:'40px',marginRight:'40px', marginTop:'20px'}}
+              >
                 LOGIN
               </button>
               
@@ -152,7 +173,7 @@ const LoginModal = ({ isOpen, onClose }) => {
                 <g className="w2">
                  <path fill="#3f86d5" d="M0,645 C131,645 229,605 360,605 C491,605 589,645 720,645 C851,645 949,685 1080,685 C1211,685 1309,645 1440,645 C1571,645 1669,605 1800,605 C1931,605 2029,645 2160,645 C2291,645 2389,685 2520,685 C2651,685 2749,645 2880,645 L2880,980 L0,980 Z"/>
                 </g>
-                <g className="w3">
+                <g className="w3">  
                   <path fill="#005ec6" d="M0,710 C131,710 229,665 360,665 C491,665 589,710 720,710 C851,710 949,755 1080,755 C1211,755 1309,710 1440,710 C1571,710 1669,665 1800,665 C1931,665 2029,710 2160,710 C2291,710 2389,755 2520,755 C2651,755 2749,710 2880,710 L2880,980 L0,980 Z"/>
                 </g>
               </svg>
