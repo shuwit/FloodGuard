@@ -3,10 +3,13 @@ import React, { useState, useEffect } from 'react';
 // Component Imports
 import TopNav from '../components/TopNav';
 import Footer from '../components/Footer';
+import LoginModal from '../components/LoginModal';
 
 // Asset Imports
 import phoneImg from '../assets/images/phone.png'; 
 import bgVideo from '../assets/images/backgroundhero.mp4'; 
+
+
 
 // Array of 6 achievements (Notice: No category field here!)
 const achievementsData = [
@@ -147,8 +150,14 @@ function AchievementPage() {
         </div>
       )}
 
-      {/* --- 1. TOP NAVIGATION --- */}
+{/* --- 1. TOP NAVIGATION --- */}
       <TopNav onLoginClick={() => setIsLoginOpen(true)} />
+
+      {/* 👇 ADD THIS RIGHT HERE! 👇 */}
+      <LoginModal 
+        isOpen={isLoginOpen} 
+        onClose={() => setIsLoginOpen(false)} 
+      />
 
       {/* --- 2. INNER PAGE HERO --- */}
       <section className="relative w-full h-[350px] md:h-[450px] flex items-center overflow-hidden">

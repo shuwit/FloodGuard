@@ -23,7 +23,7 @@ const PreparationSection = () => {
   // 1. Simulated AI Risk Logic
   const getRiskColor = (barangayName) => {
     const highRisk = ['Malanday', 'Nangka', 'Concepcion Uno', 'Tumana'];
-    const mediumRisk = ['Barangka', 'Calumpang', 'San Roque', 'Santo Niño', 'Tañong', 'Jesus de la Peña'];
+    const mediumRisk = ['Barangka', 'Calumpang', 'San Roque', 'Santo Niño', 'Tañong', 'Jesus Dela Peña'];
     
     if (highRisk.includes(barangayName)) return '#ef4444'; // Red
     if (mediumRisk.includes(barangayName)) return '#eab308'; // Yellow

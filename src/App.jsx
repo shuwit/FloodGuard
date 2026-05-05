@@ -1,11 +1,14 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+// User Pages
 import LandingPage from './pages/LandingPage';
 import PrivacyNotice from './pages/PrivacyNotice';
 import TermsOfService from './pages/TermsOfService';
 import NewsPage from './pages/NewsPage';
 import AchievementPage from './pages/AchievementPage';
+import NotFoundPage from './pages/NotFoundPage'; // 👈 1. Import the new page!
 
-// 👇 Import your new Admin Dashboard 👇
+// Admin Pages
 import AdminDashboard from './AdminPages/AdminDashboard'; 
  
 function App() {
@@ -18,8 +21,10 @@ function App() {
         <Route path="/news" element={<NewsPage />} /> 
         <Route path="/achievement" element={<AchievementPage />} />
         
-        {/* 👇 The new secure Admin route 👇 */}
         <Route path="/admin" element={<AdminDashboard />} />
+
+        {/* 👇 2. The Catch-All 404 Route MUST go at the very bottom! 👇 */}
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
   );

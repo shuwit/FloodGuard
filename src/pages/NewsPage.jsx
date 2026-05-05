@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 // Component Imports
 import TopNav from '../components/TopNav';
 import Footer from '../components/Footer';
+import LoginModal from '../components/LoginModal'; // 👇 THIS WAS MISSING! 👇
 
 // Asset Imports
 import phoneImg from '../assets/images/phone.png'; 
@@ -157,6 +158,12 @@ function NewsPage() {
 
       {/* --- 1. TOP NAVIGATION --- */}
       <TopNav onLoginClick={() => setIsLoginOpen(true)} />
+
+      {/* 👇 ADD THIS RIGHT HERE! 👇 */}
+      <LoginModal 
+        isOpen={isLoginOpen} 
+        onClose={() => setIsLoginOpen(false)} 
+      />
 
       {/* --- 2. INNER PAGE HERO --- */}
       <section className="relative w-full h-[350px] md:h-[450px] flex items-center overflow-hidden">

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import TopNav from '../components/TopNav';
 import Footer from '../components/Footer';
 import logo from '../assets/images/floodguard-logo.png';
+import LoginModal from '../components/LoginModal';
 
 function PrivacyNotice() {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
@@ -14,7 +15,14 @@ function PrivacyNotice() {
     // 1. CHANGED: overflow-x-hidden to overflow-x-clip so sticky works!
     <div className="min-h-screen font-sans text-black scroll-smooth flex flex-col overflow-x-clip bg-[#dfeeff]" >
 
+      {/* --- 1. TOP NAVIGATION --- */}
       <TopNav onLoginClick={() => setIsLoginOpen(true)} />
+
+      {/* 👇 ADD THIS RIGHT HERE! 👇 */}
+      <LoginModal 
+        isOpen={isLoginOpen} 
+        onClose={() => setIsLoginOpen(false)} 
+      />
 
       <style>{`
         @keyframes floodUp { 0% { transform: translateY(100vh); } 100% { transform: translateY(0); } }
